@@ -1,24 +1,24 @@
 body{
     background-color: rgb(246, 239, 210);
     font-size: 1.5rem;
+    padding: 5rem 10rem;
 }
 
 h1 {
-    text-align: center;
     font-size: 2rem;
 }
-.book-form{
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    gap: 1rem;
-    justify-content: center;
 
-    padding: 5rem 10rem;
+.form{
+    padding: 3rem none;
+}
+
+#bookForm{
+    justify-content: center;
 }
 
 .library-form {
     display: grid;
-    grid-template-columns: 1fr 1fr auto;
+    grid-template-columns: auto auto auto;
     gap: 1rem;
     align-items: center;
 }

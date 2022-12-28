@@ -1,5 +1,15 @@
 let myLibrary = [];
 
+//default books for displaying tables
+const sapiens=new Book("Sapiens","Yuval Noah Harari","read");
+const alchemist=new Book("Alchemist","Paulo Choelo","read");
+const naruto=new Book("Naruto","Masashi Kishimoto","not read");
+
+//push the default books to library
+myLibrary.push(sapiens);
+myLibrary.push(alchemist);
+myLibrary.push(naruto);
+
 function Book(name, author, status) {
   // the constructor...
   this.name = name;
