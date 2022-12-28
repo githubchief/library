@@ -9,6 +9,32 @@
     <script defer src="main.js"></script>
 </head>
 <body>
+    <h1>My Library</h1>
+    <div class="form">
+        <form action="" class="book-form">
+            
+            <div class="library-form">
+                <div class="book-name">
+                    <label for="bookName">Book</label>
+                    <input type="text" id="bookName">
+                </div>
+                <div class="author-name">
+                    <label for="authorName">Author</label>
+                    <input type="text" id="authorName">
+                </div>
+                <div class="status">
+                    <label for="status">Status</label>
+                    <select name="status" id="status" class="status-selection">
+                      <option value="read">Read</option>
+                      <option value="not read">Not read</option>
+                    </select>
+                </div>
+            </div>
     
+            <div class="button-primary">
+                <input type="submit" value="submit"  />
+            </div>
+        </form>
+    </div>
 </body>
 </html>
