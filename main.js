@@ -1,9 +1,9 @@
 let myLibrary = [];
 
 //default books for displaying tables
-const sapiens=new Book("Sapiens","Yuval Noah Harari","read");
-const alchemist=new Book("Alchemist","Paulo Choelo","read");
-const naruto=new Book("Naruto","Masashi Kishimoto","not read");
+let sapiens=new Book("Sapiens","Yuval Noah Harari","read");
+let alchemist=new Book("Alchemist","Paulo Choelo","read");
+let naruto=new Book("Naruto","Masashi Kishimoto","not read");
 
 //push the default books to library
 myLibrary.push(sapiens);
@@ -69,6 +69,26 @@ function displayOutput(){
 
         cell1.innerHTML = element.name;
         cell2.innerHTML = element.author;
-        cell3.innerHTML = element.status;
+  
+        // creating button element for status
+        var button = document.createElement('BUTTON');
+        
+        button.className = "statusButton";
+
+        // creating text to be displayed on button
+        var text = document.createTextNode(element.status);
+
+        //update buttons value using elements status
+        button.value=element.status; 
+
+        // appending text to button
+        button.appendChild(text);
+         
+        // appending button to cell3
+        cell3.appendChild(button); 
+
+
     });
 }
+
+
