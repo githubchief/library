@@ -88,8 +88,6 @@ function displayOutput(){
 
 tableBody.addEventListener("click", (e) => {
 
-
-    console.log(e.target);
     // check if the clicked element is a statusButton
     if (e.target.classList.contains("statusButton")) {
       // get the index of the book from the data-index attribute
