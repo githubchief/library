@@ -2,13 +2,13 @@ let myLibrary = [];
 
 //default books for displaying tables
 let sapiens=new Book("Sapiens","Yuval Noah Harari","read");
-let alchemist=new Book("Alchemist","Paulo Choelo","read");
 let naruto=new Book("Naruto","Masashi Kishimoto","not read");
+let dues=new Book("Dues", "Yuval Noah Harari", "read");
 
 //push the default books to library
 myLibrary.push(sapiens);
-myLibrary.push(alchemist);
 myLibrary.push(naruto);
+myLibrary.push(dues);
 
 function Book(name, author, status) {
   // the constructor...
@@ -61,8 +61,8 @@ displayOutput();
 function displayOutput(){
 
     tableBody.innerHTML="";
-    myLibrary.forEach(element => {
-        tempRow = tableBody.insertRow(element);
+    myLibrary.forEach((element,index) => {
+        tempRow = tableBody.insertRow(index);
         let cell1= tempRow.insertCell(0);
         let cell2= tempRow.insertCell(1);
         let cell3= tempRow.insertCell(2);
@@ -71,24 +71,53 @@ function displayOutput(){
         cell2.innerHTML = element.author;
   
         // creating button element for status
-        var button = document.createElement('BUTTON');
+
+        if(element.status == "not read") {
+            cell3.innerHTML= `<button class="statusButton" data-status="not read" data-index="${index}">not read<button/>`;
+        }
+
+        else {
+            cell3.innerHTML= `<button class="statusButton" data-status="read" data-index="${index}">read<button/>`;
+        }
         
-        button.className = "statusButton";
-
-        // creating text to be displayed on button
-        var text = document.createTextNode(element.status);
-
-        //update buttons value using elements status
-        button.value=element.status; 
-
-        // appending text to button
-        button.appendChild(text);
-         
-        // appending button to cell3
-        cell3.appendChild(button); 
-
-
     });
 }
 
+
+tableBody.addEventListener("click", (e) => {
+
+
+    console.log(e.target);
+    // check if the clicked element is a statusButton
+    if (e.target.classList.contains("statusButton")) {
+      // get the index of the book from the data-index attribute
+      let index = e.target.getAttribute("data-index");
+      // toggle the status of the book in the myLibrary array
+      myLibrary[index].status =
+        myLibrary[index].status === "not read" ? "read" : "not read";
+      // update the data-status attribute of the button
+      e.target.setAttribute("data-status", myLibrary[index].status);
+      // update the text content of the button
+      e.target.textContent = myLibrary[index].status;
+      displayOutput();
+    }
+  });
+
+// let statusButton = document.querySelectorAll(".statusButton");
+
+// statusButton.forEach((element,index) => {
+
+//     element.addEventListener("click",(e)=> {
+
+//     debugger;
+//     myLibrary[index].status = myLibrary[index].status === "not read" ? "read" : "not read";
+
+//     element.setAttribute("data-status", myLibrary[index].status);
+//     element.textContent = myLibrary[index].status;
+
+//     console.log(myLibrary);
+//     displayOutput();
+
+// });
+// });
 
