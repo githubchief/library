@@ -18,10 +18,29 @@ function Book(name, author, status) {
 }
 
 function addBookToLibrary() {
-  // do stuff here
-  const newBook = new Book(bookName.value, authorName.value, bookStatus.value)
-  myLibrary.push(newBook);
-  return;
+
+    //create a new book and push it to the library.
+    const newBook = new Book(bookName.value, authorName.value, bookStatus.value);
+    let exists=0;
+
+    for (element in myLibrary)
+     {  
+        //check if the newbook is already existing in the library
+        if(newBook.name == myLibrary[element].name) {
+
+            //if book already exists warn user about the same.
+            alert("book already exists");
+            exists=1;
+            return;
+        }
+        
+    }
+
+    //if book doesnt exist then push it
+    if (exists==0){
+        myLibrary.push(newBook);
+    }
+return;
 }
 
 let submitButton = document.getElementById("submitButton");
@@ -43,7 +62,6 @@ function displayOutput(){
 
     tableBody.innerHTML="";
     myLibrary.forEach(element => {
-
         tempRow = tableBody.insertRow(element);
         let cell1= tempRow.insertCell(0);
         let cell2= tempRow.insertCell(1);
@@ -53,5 +71,4 @@ function displayOutput(){
         cell2.innerHTML = element.author;
         cell3.innerHTML = element.status;
     });
-
 }
