@@ -66,6 +66,7 @@ function displayOutput(){
         let cell1= tempRow.insertCell(0);
         let cell2= tempRow.insertCell(1);
         let cell3= tempRow.insertCell(2);
+        let cell4 = tempRow.insertCell(3);
 
         cell1.innerHTML = element.name;
         cell2.innerHTML = element.author;
@@ -80,6 +81,7 @@ function displayOutput(){
             cell3.innerHTML= `<button class="statusButton" data-status="read" data-index="${index}">read<button/>`;
         }
         
+        cell4.innerHTML= `<button class="deleteButton" data-index="${index}">Delete<button/>`;
     });
 }
 
@@ -101,6 +103,20 @@ tableBody.addEventListener("click", (e) => {
       e.target.textContent = myLibrary[index].status;
       displayOutput();
     }
+
+    if (e.target.classList.contains("deleteButton")) {
+        // get the index of the book from the data-index attribute
+        let index = e.target.getAttribute("data-index");
+        // toggle the status of the book in the myLibrary array
+        myLibrary = myLibrary.splice(0,index) .concat(myLibrary.splice(index+1));
+        // // update the data-status attribute of the button
+        // e.target.setAttribute("data-status", myLibrary[index].status);
+        // // update the text content of the button
+        // e.target.textContent = myLibrary[index].status;
+        displayOutput();
+      }
+
+
   });
 
 // let statusButton = document.querySelectorAll(".statusButton");
