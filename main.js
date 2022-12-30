@@ -56,7 +56,7 @@ bookForm.addEventListener("submit", (e)=>{
     displayOutput();
 })
 
-displayOutput();
+
 
 function displayOutput(){
 
@@ -116,6 +116,11 @@ tableBody.addEventListener("click", (e) => {
 
 
   });
+
+
+
+  
+  displayOutput();
 
 // let statusButton = document.querySelectorAll(".statusButton");
 
