@@ -106,7 +106,7 @@ tableBody.addEventListener("click", (e) => {
         // get the index of the book from the data-index attribute
         let index = e.target.getAttribute("data-index");
         // toggle the status of the book in the myLibrary array
-        myLibrary = myLibrary.splice(0,index) .concat(myLibrary.splice(index+1));
+        myLibrary.splice(index,1) ;
         // // update the data-status attribute of the button
         // e.target.setAttribute("data-status", myLibrary[index].status);
         // // update the text content of the button
