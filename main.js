@@ -74,14 +74,14 @@ function displayOutput(){
         // creating button element for status
 
         if(element.status == "not read") {
-            cell3.innerHTML= `<button class="statusButton" data-status="not read" data-index="${index}">not read<button/>`;
+            cell3.innerHTML= `<button class="statusButton" data-status="not read" data-index="${index}">not read</button>`;
         }
 
         else {
-            cell3.innerHTML= `<button class="statusButton" data-status="read" data-index="${index}">read<button/>`;
+            cell3.innerHTML= `<button class="statusButton" data-status="read" data-index="${index}">read</button>`;
         }
         
-        cell4.innerHTML= `<button class="deleteButton" data-index="${index}">Delete<button/>`;
+        cell4.innerHTML= `<button class="deleteButton" data-index="${index}">Delete</button>`;
     });
 }
 
