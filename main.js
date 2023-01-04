@@ -1,5 +1,13 @@
 let myLibrary = [];
 
+class Book {
+    constructor (name, author, status) {
+        this.name = name;
+        this.status = status;
+        this.author = author;
+    }
+}
+
 //default books for displaying tables
 let sapiens=new Book("Sapiens","Yuval Noah Harari","read");
 let naruto=new Book("Naruto","Masashi Kishimoto","not read");
@@ -10,15 +18,7 @@ myLibrary.push(sapiens);
 myLibrary.push(naruto);
 myLibrary.push(dues);
 
-function Book(name, author, status) {
-  // the constructor...
-  this.name = name;
-  this.status = status;
-  this.author = author;
-}
-
 function addBookToLibrary() {
-
     //create a new book and push it to the library.
     const newBook = new Book(bookName.value, authorName.value, bookStatus.value);
     let exists=0;
@@ -33,9 +33,7 @@ function addBookToLibrary() {
             exists=1;
             return;
         }
-        
     }
-
     //if book doesnt exist then push it
     if (exists==0){
         myLibrary.push(newBook);
@@ -57,9 +55,7 @@ bookForm.addEventListener("submit", (e)=>{
 })
 
 
-
 function displayOutput(){
-
     tableBody.innerHTML="";
     myLibrary.forEach((element,index) => {
         tempRow = tableBody.insertRow(index);
@@ -76,15 +72,12 @@ function displayOutput(){
         if(element.status == "not read") {
             cell3.innerHTML= `<button class="statusButton" data-status="not read" data-index="${index}">not read</button>`;
         }
-
         else {
             cell3.innerHTML= `<button class="statusButton" data-status="read" data-index="${index}">read</button>`;
         }
-        
         cell4.innerHTML= `<button class="deleteButton" data-index="${index}">Delete</button>`;
     });
 }
-
 
 tableBody.addEventListener("click", (e) => {
 
@@ -113,30 +106,6 @@ tableBody.addEventListener("click", (e) => {
         // e.target.textContent = myLibrary[index].status;
         displayOutput();
       }
-
-
   });
 
-
-
-  
   displayOutput();
-
-// let statusButton = document.querySelectorAll(".statusButton");
-
-// statusButton.forEach((element,index) => {
-
-//     element.addEventListener("click",(e)=> {
-
-//     debugger;
-//     myLibrary[index].status = myLibrary[index].status === "not read" ? "read" : "not read";
-
-//     element.setAttribute("data-status", myLibrary[index].status);
-//     element.textContent = myLibrary[index].status;
-
-//     console.log(myLibrary);
-//     displayOutput();
-
-// });
-// });
-
